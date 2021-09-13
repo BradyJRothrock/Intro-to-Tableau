@@ -61,7 +61,7 @@ You should always save your files to the OneDrive location. If you save files an
 To lauch **Tableau** select the **Windows** button in the bottom left-hand corner and search for **Tableau**. This is the simplest way to launch the application. If the app does not appear try disconnecting from the virtual deskotp and reconnecting. If the app still does not appear let the professor know immediately.
 
 <figure>
-    <img src="images/100/8_search_powerbi.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
+    <img src="images/100/8_search_tableau.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
     <figcaption style="text-align:center;">Figure 7<figcaption>
 </figure>
 
@@ -80,38 +80,40 @@ Because **Tableau** requires a license we need to provide the class license key 
 If a screen appears regarding a **Trial**, select the **Activate** button. 
 
 <figure>
-    <img src="images/100/.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
+    <img src="images/100/10_trial.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
     <figcaption style="text-align:center;">Figure 9<figcaption>
 </figure>
 
 Once you are on the **Activation** screen do not enter any information to begin a new trial. Instead, select the **Activate Tableau** link. 
 
 <figure>
-    <img src="images/100/.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
+    <img src="images/100/11_activate.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
     <figcaption style="text-align:center;">Figure 10<figcaption>
 </figure>
 
 The next screen will ask if you are going to activate with a **Product Key** or a **Server**. For our class we will select **Product Key**.  
 
 <figure>
-    <img src="images/100/.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
+    <img src="images/100/12_product_key.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
     <figcaption style="text-align:center;">Figure 11<figcaption>
 </figure>
 
 This is the screen where you will now provide your product key. The class key will be provided via email from the professor. Copy and paste the **Key** into the box showing `0000-0000-0000-0000-0000` and click **Activate**.   
 
 <figure>
-    <img src="images/100/.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
+    <img src="images/100/13_key.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
     <figcaption style="text-align:center;">Figure 12<figcaption>
-</figure>
-
-This is the screen where you will now provide your product key. The class key will be provided via email from the professor. Copy and paste the **Key** into the box showing `0000-0000-0000-0000-0000`.   
-
-<figure>
-    <img src="images/100/.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 12<figcaption>
-</figure>
+</figure>  
 
 Congratulations, you have activated Tableau on your virtual desktop to be used until the end of the semester. 
+
+Sometimes when connecting to the virual desktop and launching Tableau a window appears saying `License Has Changed`. When this occurs click **Exit**. The application should relauch and follow the previous steps to reactivate with the classroom license.
+
+<figure>
+    <img src="images/100/14_license.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
+    <figcaption style="text-align:center;">Figure 12<figcaption>
+</figure>
+
+
 
 <!-- **[Part 2: Basic Introduction to Core Features](/Intro-to-Power-BI/?lab=part-2-basic-introduction-core-features)** -->
