@@ -8,7 +8,7 @@ With Tableau opened, a new blank workbook will be created unless a previously cr
 
 Tableau is an extremely powerful business intelligence application that allows its users to create in-depth visualizations in very little time.
 
-    ![Tableau Logo](images/01-IntroTableau_Logo.png)
+![Tableau Logo](images/01-IntroTableau_Logo.png)
 
 Like Microsoft Excel, Tableau focuses extensively on allowing its users to manipulate tables of data and create visualizations without any need for additional programming.
 
@@ -16,7 +16,7 @@ Tableau also utilizes a drag-and-drop style interface so that its users can very
 
 Tableau also offers a [gallery](https://public.tableau.com/en-us/s/gallery) of projects that Tableau users have created and shared publicly.
 
-  ![Tableau Gallery](images/02-Installation_Gallery.png)
+![Tableau Gallery](images/02-Installation_Gallery.png)
 
 One of Tableau's features is the ability to share projects and visualizations with one's community.
 
@@ -26,7 +26,7 @@ Not only can visualizations be shared on the Tableau site, they can also be embe
 
 Now that we have installed Tableau, open up the application and explore the many different data sources that can be connected to it.
 
-  ![Data Sources](images/03-LoadingData_DataSources.png)
+![Data Sources](images/03-LoadingData_DataSources.png)
 
 Not only is Tableau able to connect to data files - like CSV, XLS, and JSON - it is also able to connect to a multitude of servers - like MySQL, MongoDB, and Google Cloud.
 
@@ -34,13 +34,13 @@ What makes this noteworthy is how Tableau allows users to mix and match data fro
 
 Select "Excel" from the list of data sources available and load up [GlobalSuperstoreOrders2016.xlsx](Activities/01-Ins_LoadingData/Resources/GlobalSuperstoreOrders2016.xlsx) within Tableau.
 
-  ![Tableau Tables](images/03-LoadingData_Table.png)
+![Tableau Tables](images/03-LoadingData_Table.png)
 
 After importing the data into Tableau, to access the individual sheets from the original Excel workbook they need to be dragged from the navigator into the main application.
 
 Let's do this with the `Orders` sheet and notice a preview is provided in the main area of the application.
 
-  ![images/load02.gif](images/load02.gif)
+![images/load02.gif](images/load02.gif)
 
 Tableau does not allow its users to change the values contained within the cells of a dataset, but it is possible to create new columns based upon the values of other columns.
 
@@ -48,25 +48,25 @@ Any and all changes made to the dataset within Tableau will not affect the origi
 
 Filtering data is very simple, however, as all you need to do is click on the "Add" button beneath the `Filters` text in the top-right corner of the application and select what column they would like to filter by.
 
-  ![Filter Column](images/03-LoadingData_FilterColumn.png)
+![Filter Column](images/03-LoadingData_FilterColumn.png)
 
 After selecting which column to filter by, the values to filter are then chosen manually or based upon some kind of condition.
 
-    ![Filter Values](images/03-LoadingData_FilterValues.png)
+![Filter Values](images/03-LoadingData_FilterValues.png)
 
 Depending upon the data-type stored within a column, different filters may or may not be available. Selecting a column with a "Date" data-type, for example, allows users to filter rows based upon date ranges.
 
-    ![Filter Dates](images/03-LoadingData_FilterDate.png)
+![Filter Dates](images/03-LoadingData_FilterDate.png)
 
 ## Worksheets
 
 With a dataset linked to a Tableau workbook, we can navigate into and edit individual worksheets at the bottom of the application.
 
-  ![Worksheets Panel](images/05-BasicVisuals_Worksheets.png)
+![Worksheets Panel](images/05-BasicVisuals_Worksheets.png)
 
 Creating visualizations in Tableau is nearly identical to creating pivot tables in Excel. Users click and drag the headers of their original dataset into specific fields - Columns, Rows, Filters, etc. - in order to create a chart.
 
-  ![Tableau Chart Screen](images/05-BasicVisuals_ChartArea.png)
+![Tableau Chart Screen](images/05-BasicVisuals_ChartArea.png)
 
 As discussed in class `Dimensions` are categorical fields that data can be split by. `Measures` are the metrics or numbers that we would like to analyze.
 
@@ -74,47 +74,47 @@ Let's drag the `Category` pill from the `Dimensions` panel into `Rows` to see ho
 
 By dragging `Segment` into `Rows` and placing it after the `Category` pill, the table is made slightly more complex. Now each category within the visualization has been split into three distinct parts.
 
-  ![images/load03.png](images/load03.png)
+![images/load03.png](images/load03.png)
 
 Dragging "Quantity" from the `Measurements` panel and placing it within `Columns` finally creates a true visualization: a bar chart showing the quantity of orders per segment per category.
 
-  ![images/load04.png](images/load04.png)
+![images/load04.png](images/load04.png)
 
 Tableau has automatically aggregated `Quantity` into a sum. This will be discussed in greater detail.
 
 The chart can then be made more detailed by adding more elements. By adding `Market` into `Columns`, for example, multiple charts are created to show the quantity of orders per segment per category within each geographic market.
 
-  ![images/load05.png](images/load05.png)
+![images/load05.png](images/load05.png)
 
 Creating visualizations within Tableau really is as simple as that. Simply click and drag the elements that should be visualized into respective fields and Tableau will automatically create a visual based upon them.
 
 If you would like to change what kind of visualization to employ, all you need to do is click the `Show Me` button at the top-right of the application and select the charting style desired.
 
-    ![Show Me](images/05-BasicVisuals_ShowMe.png)
+![Show Me](images/05-BasicVisuals_ShowMe.png)
 
 Create a new worksheet within Tableau. Drag `Sales` into the `Rows` section.
 
-  ![images/load06.png](images/load06.png)
+![images/load06.png](images/load06.png)
 
 See that a bar chart was created that visualizes the total sales made. This is because the `Sales` pill is being measured by its sum by default.
 
 The type of calculation performed on a `Measures` pill can be changed by clicking on the pill, selecting "Measure" from the drop-down menu, and then picking one of the calculation types present.
 
-  ![Change Measures](images/05-BasicVisuals_Measures.png)
+![Change Measures](images/05-BasicVisuals_Measures.png)
 
 Now drag `Order Date` into the `Columns` field to create a very basic line chart.
 
-  ![images/load07.png](images/load07.png)
+![images/load07.png](images/load07.png)
 
 Tableau has aggregated the dates at the year level. In order to expand this to include quarters, simply click on the plus symbol within the `YEAR` pill.
 
-    ![Line Graph](images/05-BasicVisuals_LineGraph.png)
+![Line Graph](images/05-BasicVisuals_LineGraph.png)
 
 Tableau, by default, visualizes at the **least** granular level. In this case, it displays the yearly results by default.
 
 In order to compare how Q1 has performed over the years, simply move the `QUARTER` pill before `YEAR`.
 
-    ![Line Graph Pivot](images/05-BasicVisuals_LineGraphPivot.png)
+![Line Graph Pivot](images/05-BasicVisuals_LineGraphPivot.png)
 
 The best way to learn Tableau is to dive into the application and test it out manually.
 
@@ -124,11 +124,11 @@ The best way to learn Tableau is to dive into the application and test it out ma
 Using the `GlobalSuperstoreOrders2016.xlsx` workbook, visualize the following:
 
 1. The customers with the highest sales amount
-   ![01.png](images/01.png)
+ ![01.png](images/01.png)
 2. A monthly timeline of sales
-   ![04.png](images/04.png)
+ ![04.png](images/04.png)
 3. Profit by region and product category (in the United States).
-   ![05.png](images/05.png)
+ ![05.png](images/05.png)
 
 
 ## Data Relationships & Splitting
@@ -157,11 +157,11 @@ In order to merge  two datasets together, double click on the "Orders" button in
 
 Tableau will automatically create a relationship on the columns that contain matching values. In this case, the relationship is on the "Region" columns.
 
-    ![Relationship Menu](images/07-EasyRelationships_Menu.png)
+![Relationship Menu](images/07-EasyRelationships_Menu.png)
 
 To change how the relationship works we can open the Performance Options menu and change the Cardinality and Referenctial Integrity. Normally the default settings are ideal and we will keep these selections for this course. This same menu can be used to modify or add additional columns to merge on.
 
-    ![Performance Options](images/07-EasyRelationships_Performance_Options.png)
+![Performance Options](images/07-EasyRelationships_Performance_Options.png)
 
 Another interesting feature of Tableau is that columns containing text can be split so as to extract data.
 
@@ -171,7 +171,7 @@ Select what character to split the text on, whether to split from the beginning 
 
 Here we will split the "Order ID" column on the first hyphen one time. This will extract the state in which a sale was made from the initial string.
 
-    ![Custom Split](images/07-EasyRelationships_CustomSplit.png)
+![Custom Split](images/07-EasyRelationships_CustomSplit.png)
 
 New columns created this way can then be used when creating visualizations later on.
 
