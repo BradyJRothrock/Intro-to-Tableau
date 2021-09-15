@@ -212,9 +212,15 @@ Create a line chart that compares the ages of patients against the total number 
 
 1. Create a pair of bar charts that compare how many patients showed up to appointments versus how many were no-shows in different neighborhoods.
 
+![images/noshow04.png](images/noshow04.png)
+
 2. Create a stacked bar chart that compares no-shows to those who made it to appointment based upon the day of the week.
 
+![images/noshow07.png](images/noshow07.png)
+
 3. Create a pair of line graphs that compare age versus diabetes in both men and women.
+
+![images/noshow09.png](images/noshow09.png)
 
 
 <!-- **[Part 3: Creating and Customizing Visualizations](/Intro-to-Power-BI/?lab=part-3-creating-customzing)** -->
