@@ -1,179 +1,201 @@
 ## Part 2 - Basic Introduction to Core Features
 
-This section focuses on getting started with Power BI and introducing you to the interface.
+This section focuses on getting started with Tableau and introducing you to the interface.
 
-With Power BI opened, a new blank report will be created unless a previously created Power BI report was opened. 
+With Tableau opened, a new blank workbook will be created unless a previously created Tableau workbook was opened. 
 
-## Ribbon
+## Introduction
 
-Like all other Microsoft applications you will notice a **Tool Ribbon**, Figure 1 below, is included at the top of the screen. This will provide many useful functions and can be hidden by selecting the **Up Arrow**, Figure 2 below, in the bottom righ-hand corner of the ribbon.
+* Tableau is an extremely powerful business intelligence application that allows its users to create in-depth visualizations in very little time.
 
-<figure>
-    <img src="images/200/1_ribbon.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 1<figcaption>
-</figure>
+    ![Tableau Logo](Images/01-IntroTableau_Logo.png)
 
-<figure>
-    <img src="images/200/2_minimize.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 2<figcaption>
-</figure>
+  * Like Microsoft Excel, Tableau focuses extensively on allowing its users to manipulate tables of data and create visualizations without any need for additional programming.
 
-## Connect to Data
+  * Tableau also utilizes a drag-and-drop style interface so that its users can very easily create tables, charts, and perform analysis with little difficulty.
 
-Every report requires a data source. As an employee of KoolKart, an e-Commerce company that sells 4 categories of products, you can import and connect to datasets to look for innovative ways to increase revenues. You have been provided with a spreadsheet with thousands of rows of information and are struggling to make heads or tails of what you are evaluating. Let’s import the **[KoolKart Sales Data.xlsx](https://bradyjrothrock.github.io/Oracle-Analytics-Cloud-Workshop/Exercise%20Files/KoolKart%20Sales%20Data.xlsx)** file to see what insights we can glean. This can be done through the **Data** section of the **Home** ribbon.
+* Tableau also offers a [gallery](https://public.tableau.com/en-us/s/gallery) of projects that Tableau users have created and shared publicly.
 
-<figure>
-    <img src="images/200/3_data.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 3<figcaption>
-</figure>
+  ![Tableau Gallery](Images/02-Installation_Gallery.png)
 
-You will notice there are icons for standards Microsoft data sources. Additionally, under the **Get data** icon you will see the long list of acceptable files types and a the option **More** to access dozens of different data sources.
+  * One of Tableau's features is the ability to share projects and visualizations with one's community.
 
-<figure>
-    <img src="images/200/4_common.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 4<figcaption>
-</figure>
+  * Not only can visualizations be shared on the Tableau site, they can also be embedded on webpages.
 
-<figure>
-    <img src="images/200/5_more_sources.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 5<figcaption>
-</figure>
+## Connecting to Data
 
-Select **Excel** and navigate to the **[KoolKart Sales Data.xlsx](https://bradyjrothrock.github.io/Oracle-Analytics-Cloud-Workshop/Exercise%20Files/KoolKart%20Sales%20Data.xlsx)** file.
+* Now that we have installed Tableau, open up the application and explore the many different data sources that can be connected to it.
 
-<figure>
-    <img src="images/200/6_koolkart_sales.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 6<figcaption>
-</figure>
+  ![Data Sources](Images/03-LoadingData_DataSources.png)
 
-Select **Sheet1** to preview the data. At this point we can **Load** the table or **Transform Data** to make changres to the file before loading. 
+  * Not only is Tableau able to connect to data files - like CSV, XLS, and JSON - it is also able to connect to a multitude of servers - like MySQL, MongoDB, and Google Cloud.
 
-<figure>
-    <img src="images/200/7_sheet1.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 7<figcaption>
-</figure>
+  * What makes this noteworthy is how Tableau allows users to mix and match data from vastly different sources without the need to translate them into something like a Pandas DataFrame. The loading, exploration, and manipulation of data is all built-in.
 
-Select **Transform Data** and you will be brought to the **Power Query Editor**. Here you can wrangle your data and peform necessary transformations. You can see each of the steps applied in the **Query Settings** pane on the right. 
+* Select "Excel" from the list of data sources available and load up [GlobalSuperstoreOrders2016.xlsx](Activities/01-Ins_LoadingData/Resources/GlobalSuperstoreOrders2016.xlsx) within Tableau.
 
-<figure>
-    <img src="images/200/8_powerquery.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 8<figcaption>
-</figure>
+  ![Tableau Tables](Images/03-LoadingData_Table.png)
 
-We can now shape our data. To do this we provide our Power Query Editor with rules for adjusting the data while loading and presenting it. This doesn't affect the original data source, only this project's view of the data.
+  * After importing the data into Tableau, to access the individual sheets from the original Excel workbook they need to be dragged from the navigator into the main application.
 
-The system by default will determine the columns datatypes.
+* Let's do this with the `Orders` sheet and notice a preview is provided in the main area of the application.
 
->![](images/200/9_dimension.png " ") **Text**: Indicated by **ABC**, and are generally non-numeric fields.
+  ![Images/load02.gif](Images/load02.gif)
 
->![](images/200/9_measure.png " ") **Whole Number**: Indicated by **123**, and are generally numeric fields.
+* Tableau does not allow its users to change the values contained within the cells of a dataset, but it is possible to create new columns based upon the values of other columns.
 
->![](images/200/9_float.png " ") **Decimal Number**: Indicated by **1.2**, and are numeric fields with decimal values.
+  * Any and all changes made to the dataset within Tableau will not affect the original dataset. The purpose of Tableau is to create visualizations: manipulating data is not its strong-suit.
 
->![](images/200/9_date.png " ") **Datetime**: Fields may also be indicated by a **Calendar** icon. These will be your date and time based fields, which can be handled differently in certain visualizations.
+* Filtering data is very simple, however, as all you need to do is click on the "Add" button beneath the `Filters` text in the top-right corner of the application and select what column they would like to filter by.
 
-Unlike Oracle Analytics Cloud (OAC), Power BI read our **Year** field in as a **Whole Number** instead of **Text** as it was defined in the Excel file. 
+  ![Filter Column](Images/03-LoadingData_FilterColumn.png)
 
-To change this we can right-click on a field name, locate the **Change Type** menue and select which of the many type options we would like. Let's update the type to be **Text**.
+  * After selecting which column to filter by, the values to filter are then chosen manually or based upon some kind of condition.
 
-<figure>
-    <img src="images/200/9_to_text.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 9<figcaption>
-</figure>
+    ![Filter Values](Images/03-LoadingData_FilterValues.png)
 
-You'll note that a box will pop-up asking if we would like to **Replace current** or to **Add new step**. This happens because Power BI already performed a transformation on the **Year** field converting it from **Text** to **Whole Number**. During the import step Power BI reads all fields in as **Text** and then selects a transformation based on the data structure.
+  * Depending upon the data-type stored within a column, different filters may or may not be available. Selecting a column with a "Date" data-type, for example, allows users to filter rows based upon date ranges.
 
-<figure>
-    <img src="images/200/10_repalce_or_add.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 10<figcaption>
-</figure>
+    ![Filter Dates](Images/03-LoadingData_FilterDate.png)
 
-Select **Add new step** and see that we see a new step called **Changed Type1**. 
+## Worksheets
 
-<figure>
-    <img src="images/200/11_add_step.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 11<figcaption>
-</figure>
+* With a dataset linked to a Tableau workbook, we can navigate into and edit individual worksheets at the bottom of the application.
 
-If we instead selected **Replace current** it would update **Changed Type**. 
+  ![Worksheets Panel](Images/05-BasicVisuals_Worksheets.png)
 
-<figure>
-    <img src="images/200/12_converted.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 12<figcaption>
-</figure>
+* Creating visualizations in Tableau is nearly identical to creating pivot tables in Excel. Users click and drag the headers of their original dataset into specific fields - Columns, Rows, Filters, etc. - in order to create a chart.
 
-There are two ways we can determine what all column types Power BI selected. You can visually inspect each and every field, or you can select **Advanced Editor** from the **Query** section of the ribbon.
+  ![Tableau Chart Screen](Images/05-BasicVisuals_ChartArea.png)
 
-<figure>
-    <img src="images/200/13_advanced_editor.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 13<figcaption>
-</figure>
+* As discussed in class `Dimensions` are categorical fields that data can be split by. `Measures` are the metrics or numbers that we would like to analyze.
 
-After selected **Advanced Editor** we're presented with the **Power Query** that is being developed. This is similar to the **Preparation Script** in Oracle Analytics Cloud. Select **Display Options** and **Word Wrap** to make all of the code visible on the screen. You can now see in the code for **#"Changed Type"** the function **TransformColumnTypes()** and each of the column type selections. You can also edit the Power Query code but this is not recommended. 
+* Let's drag the `Category` pill from the `Dimensions` panel into `Rows` to see how a small table containing the three categories within the dataset is created.
 
-<figure>
-    <img src="images/200/14_power_query.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 14<figcaption>
-</figure>
+* By dragging `Segment` into `Rows` and placing it after the `Category` pill, the table is made slightly more complex. Now each category within the visualization has been split into three distinct parts.
 
-Now delete **Changed Type1** by clicking the **X** next to the step. Instead we will transform the field and update the current step. We will also at this time transform Quarter & Month back to **Text**. It is important that we do all of these transformations with **Replace current** to ensure we get the exact text string that was imported. If we choose to **Add a step** all of the new changes will be applied within this new step and will converted the transformed date values to string instead of the original values.
+  ![Images/load03.png](Images/load03.png)
 
-<figure>
-    <img src="images/200/15_replace_current.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 15<figcaption>
-</figure>
+* Dragging "Quantity" from the `Measurements` panel and placing it within `Columns` finally creates a true visualization: a bar chart showing the quantity of orders per segment per category.
 
-Once we've completed all the transformations needed, select **Close & Apply**.
+  ![Images/load04.png](Images/load04.png)
 
-<figure>
-    <img src="images/200/16_close_&_apply.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 16<figcaption>
-</figure>
+  * Tableau has automatically aggregated `Quantity` into a sum. This will be discussed in greater detail.
 
-## Build Reports
+* The chart can then be made more detailed by adding more elements. By adding `Market` into `Columns`, for example, multiple charts are created to show the quantity of orders per segment per category within each geographic market.
 
-The **Report View** is where we can create our visualizations. The three different views selected on the left-hand side are **Report**, **Data**, & **Model**. 
+  ![Images/load05.png](Images/load05.png)
 
-<figure>
-    <img src="images/200/17_report_view.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 17<figcaption>
-</figure>
+* Creating visualizations within Tableau really is as simple as that. Simply click and drag the elements that should be visualized into respective fields and Tableau will automatically create a visual based upon them.
 
-In the center of the screen is the **Canvas Area** whee visualizations are created and arranged.
+  * If you would like to change what kind of visualization to employ, all you need to do is click the `Show Me` button at the top-right of the application and select the charting style desired.
 
-<figure>
-    <img src="images/200/18_canvas.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 18<figcaption>
-</figure>
+    ![Show Me](Images/05-BasicVisuals_ShowMe.png)
 
-On the right-hand side we have 3 panes. The panes from left to right are **Filters**, **Visualizations**, & **Fields**.
+* Create a new worksheet within Tableau. Drag `Sales` into the `Rows` section.
 
-The **Filters** pane is where you use fields and make selections to filter individual or multiple visualizations.
+  ![Images/load06.png](Images/load06.png)
 
-<figure>
-    <img src="images/200/19_filters.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 19<figcaption>
-</figure>
+  * See that a bar chart was created that visualizes the total sales made. This is because the `Sales` pill is being measured by its sum by default.
 
-The **Visualzations** pane is where you can add, change, or customize visualizations, and apply drillthrough capabilities.
+* The type of calculation performed on a `Measures` pill can be changed by clicking on the pill, selecting "Measure" from the drop-down menu, and then picking one of the calculation types present.
 
-<figure>
-    <img src="images/200/20_visualizations.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 20<figcaption>
-</figure>
+  ![Change Measures](Images/05-BasicVisuals_Measures.png)
 
-The **Fields** pane shows all the available fields and their data types. You can drag these onto the canvas and other panes to create or modify visualizations. 
+* Now drag `Order Date` into the `Columns` field to create a very basic line chart.
 
-<figure>
-    <img src="images/200/21_fields.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 21<figcaption>
-</figure>
+  ![Images/load07.png](Images/load07.png)
 
-You can expand and collapse the panes by selecting the arrows at the top of each pane. This allows you to customize the amount of space to build your visualizations.
+* Tableau has aggregated the dates at the year level. In order to expand this to include quarters, simply click on the plus symbol within the `YEAR` pill.
 
-<figure>
-    <img src="images/200/22_arrows.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 22<figcaption>
-</figure>
+    ![Line Graph](Images/05-BasicVisuals_LineGraph.png)
 
-**[Part 3: Creating and Customizing Visualizations](/Intro-to-Power-BI/?lab=part-3-creating-customzing)**
+  * Tableau, by default, visualizes at the **least** granular level. In this case, it displays the yearly results by default.
+
+* In order to compare how Q1 has performed over the years, simply move the `QUARTER` pill before `YEAR`.
+
+    ![Line Graph Pivot](Images/05-BasicVisuals_LineGraphPivot.png)
+
+* The best way to learn Tableau is to dive into the application and test it out manually.
+
+
+## Data Exploration Activity
+
+* Using the `GlobalSuperstoreOrders2016.xlsx` workbook, visualize the following:
+
+1. The customers with the highest sales amount
+   ![01.png](Images/01.png)
+2. A monthly timeline of sales
+   ![04.png](Images/04.png)
+3. Profit by region and product category (in the United States).
+   ![05.png](Images/05.png)
+
+
+## Data Relationships & Splitting
+
+* In 2020 Tableau changed the default data modeling structure to the use of Relationships over Joins. 
+
+* Relationships are a dynamic, flexible way to combine data from multiple tables for analysis similar to Joins. 
+
+* Tableau recommends using relationships as a first approach to combining  data because it makes data preparation and analysis easier. 
+
+* Joins are still available but should only be used when absolutely necessary.
+
+* Some advantages of using relationships are:
+
+  * To combine tables include making your data source easier to define, change, and reuse. 
+  
+  * Make it easier to analyze data across multiple tables.
+
+  * Only querying data from tables with fields used in the current visualizaition which is more efficient.
+
+* Relationships are an inescapable aspect of data science and are often thought to be both tedious and complex. Tableau, however, trivializes relationships to such a degree that even complex relationships can be performed in just a few clicks.
+
+* Go back to the Data Source pane where you previously moved the "Orders" sheet into the main area. 
+
+  * In order to merge  two datasets together, double click on the "Orders" button in the main area of Tableau, then click and drag the "People" sheet into to main area of Tableau alongside the "Orders" sheet.
+
+  * Tableau will automatically create a relationship on the columns that contain matching values. In this case, the relationship is on the "Region" columns.
+
+    ![Relationship Menu](Images/07-EasyRelationships_Menu.png)
+
+  * To change how the relationship works we can open the Performance Options menu and change the Cardinality and Referenctial Integrity. Normally the default settings are ideal and we will keep these selections for this course. This same menu can be used to modify or add additional columns to merge on.
+
+    ![Performance Options](Images/07-EasyRelationships_Performance_Options.png)
+
+* Another interesting feature of Tableau is that columns containing text can be split so as to extract data.
+
+  * To do this, select the column header whose values should be split, right click, and select "Custom Split" from the drop down menu.
+
+  * Select what character to split the text on, whether to split from the beginning or end of the string, and then how many times the text should be split.
+
+  * Here we will split the "Order ID" column on the first hyphen one time. This will extract the state in which a sale was made from the initial string.
+
+    ![Custom Split](Images/07-EasyRelationships_CustomSplit.png)
+
+  * New columns created this way can then be used when creating visualizations later on.
+
+* Let's create a new worksheet and see how Tableau has added the `People` sheet with it's own set of **Dimensions** and **Metrics**. From here pills from both datasets can be used in combination.
+
+## Relationship Activity
+
+* Create a relation between each of the charts so that each player's data is matched up correctly.
+
+1. Create a pair of charts that compare the potential of a club's players to their overall ability (`Overall` column). Then sort them from best to worst.
+
+2. Create a chart that determines which nationality has the greatest acceleration on average, making sure to note how many players are from each nation in a second chart.
+
+3. Create a chart that marks the potential of a player over time as they age.
+
+## Additional Activity
+
+* Create a line chart that compares the ages of patients against the total number of appointments. Then split this graph based upon gender and whether the patient showed up to their appointment. For this first step, you'll need to convert `Age` from a measure to a dimension.
+
+* Create a pair of bar charts that compare how many patients showed up to appointments versus how many were no-shows in different neighborhoods.
+
+* Create a stacked bar chart that compares no-shows to those who made it to appointment based upon the day of the week.
+
+* Create a pair of line graphs that compare age versus diabetes in both men and women.
+
+
+<!-- **[Part 3: Creating and Customizing Visualizations](/Intro-to-Power-BI/?lab=part-3-creating-customzing)** -->
