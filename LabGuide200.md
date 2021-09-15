@@ -124,10 +124,15 @@ The best way to learn Tableau is to dive into the application and test it out ma
 Using the `GlobalSuperstoreOrders2016.xlsx` workbook, visualize the following:
 
 1. The customers with the highest sales amount
+ 
  ![01.png](images/01.png)
+
 2. A monthly timeline of sales
+ 
  ![04.png](images/04.png)
+
 3. Profit by region and product category (in the United States).
+ 
  ![05.png](images/05.png)
 
 
