@@ -32,7 +32,7 @@ Not only is Tableau able to connect to data files - like CSV, XLS, and JSON - it
 
 What makes this noteworthy is how Tableau allows users to mix and match data from vastly different sources without the need to translate them into something like a Pandas DataFrame. The loading, exploration, and manipulation of data is all built-in.
 
-Select "Excel" from the list of data sources available and load up [GlobalSuperstoreOrders2016.xlsx](Activities/01-Ins_LoadingData/Resources/GlobalSuperstoreOrders2016.xlsx) within Tableau.
+Select "Excel" from the list of data sources available and load up [GlobalSuperstoreOrders2016.xlsx](GlobalSuperstoreOrders2016.xlsx) within Tableau.
 
 ![Tableau Tables](images/03-LoadingData_Table.png)
 
@@ -123,6 +123,8 @@ The best way to learn Tableau is to dive into the application and test it out ma
 
 Using the `GlobalSuperstoreOrders2016.xlsx` workbook, visualize the following:
 
+Data: [GlobalSuperstoreOrders2016.xlsx](GlobalSuperstoreOrders2016.xlsx) 
+
 1. The customers with the highest sales amount
  
  ![01.png](images/01.png)
@@ -184,6 +186,10 @@ Let's create a new worksheet and see how Tableau has added the `People` sheet wi
 
 ## Relationship Activity
 
+Data:
+[PlayerAttributeData.csv](PlayerAttributeData.csv) 
+[PlayerPersonalData.csv](PlayerPersonalData.csv) 
+
 Create a relation between each of the charts so that each player's data is matched up correctly.
 
 1. Create a pair of charts that compare the potential of a club's players to their overall ability (`Overall` column). Then sort them from best to worst.
@@ -193,6 +199,8 @@ Create a relation between each of the charts so that each player's data is match
 3. Create a chart that marks the potential of a player over time as they age.
 
 ## Additional Activity
+
+Data: [no_shows.csv](now_shows.csv) 
 
 Create a line chart that compares the ages of patients against the total number of appointments. Then split this graph based upon gender and whether the patient showed up to their appointment. For this first step, you'll need to convert `Age` from a measure to a dimension.
 
