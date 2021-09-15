@@ -175,7 +175,7 @@ Here we will split the "Order ID" column on the first hyphen one time. This will
 
 New columns created this way can then be used when creating visualizations later on.
 
-Let's create a new worksheet and see how Tableau has added the `People` sheet with it's own set of **Dimensions*and **Metrics**. From here pills from both datasets can be used in combination.
+Let's create a new worksheet and see how Tableau has added the `People` sheet with it's own set of **Dimensions** and **Metrics**. From here pills from both datasets can be used in combination.
 
 ## Relationship Activity
 
@@ -191,11 +191,11 @@ Create a relation between each of the charts so that each player's data is match
 
 Create a line chart that compares the ages of patients against the total number of appointments. Then split this graph based upon gender and whether the patient showed up to their appointment. For this first step, you'll need to convert `Age` from a measure to a dimension.
 
-Create a pair of bar charts that compare how many patients showed up to appointments versus how many were no-shows in different neighborhoods.
+1. Create a pair of bar charts that compare how many patients showed up to appointments versus how many were no-shows in different neighborhoods.
 
-Create a stacked bar chart that compares no-shows to those who made it to appointment based upon the day of the week.
+2. Create a stacked bar chart that compares no-shows to those who made it to appointment based upon the day of the week.
 
-Create a pair of line graphs that compare age versus diabetes in both men and women.
+3. Create a pair of line graphs that compare age versus diabetes in both men and women.
 
 
 <!-- **[Part 3: Creating and Customizing Visualizations](/Intro-to-Power-BI/?lab=part-3-creating-customzing)** -->
