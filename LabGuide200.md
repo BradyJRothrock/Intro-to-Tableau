@@ -206,7 +206,7 @@ Create a relation between each of the charts so that each player's data is match
 
 ## Additional Activity
 
-Data: [no_shows.csv](now_shows.csv) 
+Data: [no_shows.csv](no_shows.csv) 
 
 Create a line chart that compares the ages of patients against the total number of appointments. Then split this graph based upon gender and whether the patient showed up to their appointment. For this first step, you'll need to convert `Age` from a measure to a dimension.
 
