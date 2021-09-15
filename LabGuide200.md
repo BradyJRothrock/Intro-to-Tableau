@@ -194,9 +194,15 @@ Create a relation between each of the charts so that each player's data is match
 
 1. Create a pair of charts that compare the potential of a club's players to their overall ability (`Overall` column). Then sort them from best to worst.
 
+![Images/fifa01.png](Images/fifa02.png)
+
 2. Create a chart that determines which nationality has the greatest acceleration on average, making sure to note how many players are from each nation in a second chart.
 
+![Images/fifa04.png](Images/fifa04.png)
+
 3. Create a chart that marks the potential of a player over time as they age.
+
+![Images/fifa06.png](Images/fifa06.png)
 
 ## Additional Activity
 
