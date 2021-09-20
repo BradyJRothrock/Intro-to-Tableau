@@ -15,6 +15,14 @@
 			"publisheddate": "02/18/2020",
 			"contentid": "12nnnn",
 			"filename": "LabGuide200.md"
+		},
+		{
+			"title": "Part 3: Mapping & Forecasts",
+			"description": "Mapping & Forecasts",
+			"partnumber": "Ennnnn_01",
+			"publisheddate": "02/18/2020",
+			"contentid": "12nnnn",
+			"filename": "LabGuide300.md"
 		}
 	]
 }

@@ -1,322 +1,115 @@
-## Part 3 - Creating and Customzing Visualizations
+## Part 3 - Maps & Forecasting
 
-This section focuses on the creation and customization of data visualizations that can be created within Power BI.
+This section focuses on the creation and customization of visualizing maps and forecasting with time series data.
 
-## Creating
+## Mapping
 
-To create visualizations we will need to select fields from the **Fields Pane** to include in our chart. You can see that **Datetime** fields are denoted by a **Calendar** icon and **Numeric** fields are denoted by the **Sigma** symbol normally referred to for summing.
+Data:
+[Donations.xls](mapping/Donations.xls) 
 
-<figure>
-    <img src="images/300/1_fields.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 1<figcaption>
-</figure>
+Creating maps in Tableau is an extermely easy endeavor, however, to control the design and formatting takes an understanding of numerous topics. The ease of generating maps in Tableau is due to the inclusing of Tableau generated measures of Longitude and Latitude, plus the inclusion of shape files. Shape files are images that are the shape of different geograpic areas such as Country, Region, State, and even Zip Codes among others. 
 
-Note that double-clicking fields in Power BI does not automatically add them to the canvas. Instead it allows you the ability to rename the field if you so choose.
+Lets start by double clicking `Longitude (Generated)` & `Latitude (Generated)`. The reason I recommend clicking the pills instead of dragging and dropping is that Tableau will automatically put them in the correct place to generate a map, and if you manually place them in the wrong area a Scatter Plot is generating instead of a map.
 
-<figure>
-    <img src="images/300/2_doubleclick.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 2<figcaption>
-</figure>
+Once the map is generated we can start to add fields that will fill in the map. The fields we will focus on are the Dimensions with the `Geographic` icon and measures to aggregate. 
 
-The easiest way to get started is to select a field of data and drag it onto the **Canvas**.
+Double clicking on a `Geographic Dimension`, like `State`, might not return what you would originally expect. Normally Tableau will place circles on each point of interest. Tableau places the field on the `Details` section of the `Marks Cards`to tell Tableau how to summarize measures. You'll also notice that at the top of the `Marks Cards` there is a drop down that is currently set to `Circle`. The option of `Circle` may make sense when we are using points to represent a `Non-Geographic Shape` point like the location of a company's stores or Cities. 
 
-<figure>
-    <img src="images/300/3_drag.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 3<figcaption>
-</figure>
+If we select the drop down we can change it from `Circle` to `Map`. This will then generate shapes matching the `Geographic Dimension` field with all filled in blue. We're now one step closer to creating a map that tells a story geographically.
 
-Once released, Power BI will create the best visualization based on the information currently provided. In this case **Mont** included **Text** values so Power BI chose to create a table.
+The last step for a simple map is to place a `Measure` on the `Colors` section of the `Marks Cards`. This will automatically color all of the states that have a matching record. As usual Tableau will start with the aggregation of the `SUM()` of the selected `Measure`. At the same time Tableau will generate a legend with a spectrum of values from the minimum to the maximum. This can be altered many ways, including to be solid colors with bands of values. We'll talk about this concept later as it is common across multiple chart types. 
 
-<figure>
-    <img src="images/300/4_table.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 4<figcaption>
-</figure>
+If we wanted to go back to circles and represent the different `Cities` in our dataset we can place the `City` dimension pill on the `Details` pane of the `Marks Cards`. Notice how it retains the color spectrum but the minimum and maximum values may change with the lower lever of detai for the aggregation. 
 
-We will drag and drop a numeric field like **Revenue** on top of the table. You will notice that it adds the aggregatve value to the table instead of changing the chart type like Oracle Analytics Cloud. Power BI believes that you should deliberately change visuzations types after the default is generated.
+Instead of usings `Color`, we can also represent the measure for each `City` by `Size`. If we drag the `SUM(Gift Amount)` to the `Size` panel in the `Marks Cards`. We now see the circles change size and all return to the same shade of blue. We can see that `Denver` is the largest circle even though `California` previously was the largest by `State`.
 
-<figure>
-    <img src="images/300/5_table_addition.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 5<figcaption>
-</figure>
+Another neat feature that comes with Tableau maps is the ability to include US Census data on different measuers and levels. Click on the `Map` menu at the top of the screen we can find `Map Layers`. This will open a menu on the left hand side of Tableau with numerous options. We can turn on and off differnt map features like the outline of differnt shapes or names. We can also control the color scheme and what base map information si used. 
 
-If you want to change the visualization type then we need to look to the **Visualizations Pane**. This pane will allow us to change the visualization type from the currently selected **Table** to any other type. Lets selected the **Grouped Column Chart**. This is the Power BI name for a traditional vertical bar chart.
+At the bottom the `Data Layer` section provides the option to select a layer of values like `Population` by a specific geographic shape like `State`. This can allow us to remove base map layers but still include the shape of states using the population data. 
 
-<figure>
-    <img src="images/300/6_viz_pane.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 6<figcaption>
-</figure>
+The final basic, however, difficult feat to accomplish with Tableau maps is to incldue two `Measures` at different levels of detail. These are what we refer to as a `Dual Axis` map. We now need to drag and drop `Longitude` and `Latitude` to columns and rows so that a grid of 4 maps is generated. From here, click the drop down on the second `Longitude` and select `Dual Axis`. Do the same for `Latitude` and you will notice we return to a single map.
 
-We now have a vertical bar chart of the **Revenue** by **Month**. You'll notice that Power BI by default sorts the bars in descending order instead of by the month labels. We'll discuss later how to change this. 
+Additionally, you'll notice that in the `Marks Cards` that there are now 3 drop downs. The first represents `Marks Cards` that control all map items. The second and the third are currently identical but allow us to make changes and visaulize two differnt maps on top of each other. Lets open the second menu where we will collapes the `State` detail and drage the `SUM(Gift Amount)` to `Color`. Now we have a map of `States` colored by our measure and circles with size representing our measure by `City`.  
 
-<figure>
-    <img src="images/300/7_bars.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 7<figcaption>
-</figure>
-
-The original chart created may not be very large, and by default Power BI might angle our x-labels to ensure they don't overlap. Instead lets enlarge the visuzlation to be half of the canvas. While selected on the chart you will notice 8 grey handles around the edge of the chart. Grab one of the corners and drag it until the visulization takes up half of the canvas.
-
-<figure>
-    <img src="images/300/8_resize.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 8<figcaption>
-</figure>
-
-Our resulting chart now has taller bars and our labels are able to be horizontal without overalpping.
-
-<figure>
-    <img src="images/300/9_large.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 9<figcaption>
-</figure>
-
-Another way to add a new visulization to the **Canvas** is to select the fields and the chart type we would like from the **Fields** and **Visualization** pane. As we select **Customer Age Group**, **Revenue**, & a **Donut Chart** you will see the canvas updating for each item.
-
-<figure>
-    <img src="images/300/10_selections.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 10<figcaption>
-</figure>
-
-After making all 3 selections we'll be left with our donut chart placed in the open canvas space. Power BI will always place new charts in open space and estimate the shape and size of the chart. 
-
-<figure>
-    <img src="images/300/11_pie.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 11<figcaption>
-</figure>
-
-## Customizing
-
-When we want to customize our individual visualizations we can do so in the bottom half of the **Visualizations Pane**. In this area there are 3 options: Fields, Format, & Analytics. In the **Fields** section we see the parts that make up the viz, potentially with openings where we can drag and drop additional fields.
-
-<figure>
-    <img src="images/300/12_customize_fields.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 12<figcaption>
-</figure>
-
-If we drag **Category** over and drop it in the **Legend** field we'll see that it adds **Category** to a viz with a separate color for each unique value. 
-
-<figure>
-    <img src="images/300/13_legend.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 13<figcaption>
-</figure>
-
-<figure>
-    <img src="images/300/14_color.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 14<figcaption>
-</figure>
-
-On the **Format** tab we can make selections that visually customize our charts. This can include a multitude of items such as adding or remove legends, axes, & labels to the ability to control the colors and location of the viz on the canvas.
-
-<figure>
-    <img src="images/300/15_customize_format.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 15<figcaption>
-</figure>
-
-<figure>
-    <img src="images/300/16_format_color.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 16<figcaption>
-</figure>
-
-Here we will update our chart to be **Horizontal Bars**, turn off the **X-axis**, and turn on the **Data label** to see if this will be a cleaner way to visualize our data. Remember to always consider the data-to-ink ratio and how less can be more powerful.
-
-<figure>
-    <img src="images/300/17_horizontal_data_labels.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 17<figcaption>
-</figure>
-
-<figure>
-    <img src="images/300/18_data_labels_result.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 18<figcaption>
-</figure>
-
-The last tab in the **Analytics** tab. Not all visuzliation types have options in this tab, but if they do it will allow adding calculated statistical values to the visualization.
-
-<figure>
-    <img src="images/300/19_analytics.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 19<figcaption>
-</figure>
-
-Perhaps we want to inlcude the **Average Revenue** to provide an easy visual distinction of which categories in which months are performing above average. 
-
-<figure>
-    <img src="images/300/20_avg_revenue.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 20<figcaption>
-</figure>
-
-The last way we can add a new visualization to the canvas is to double-click on the visualization type. This will generate a blank visualization where we will manually populate the **Fields tab**.
-
-<figure>
-    <img src="images/300/21_line_chart.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 21<figcaption>
-</figure>
-
-<figure>
-    <img src="images/300/22_custom_fields.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 22<figcaption>
-</figure>
-
-Here we will bring **Date** to the **Axis** value and the **Number of Orders** to the **Values** box.
-
-<figure>
-    <img src="images/300/23_date_qty.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 23<figcaption>
-</figure>
-
-At first this may not genreate the type of line chart you expected. What we end up with is a line and two categorical values for our two years. 
-
-<figure>
-    <img src="images/300/24_discrete_line.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 24<figcaption>
-</figure>
-
-The reason our line chart is grouped by year is the type of date field is discreate instead of continuous. Select the dropdown arrow next to **Date** and select the option **Date** instead of **Date Hierarchy**.
-
-<figure>
-    <img src="images/300/25_continuous.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 25<figcaption>
-</figure>
-
-Now we have a line chart representing each individual day within our dataset.
-
-<figure>
+<!-- <figure>
     <img src="images/300/26_cont_line.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
     <figcaption style="text-align:center;">Figure 26<figcaption>
-</figure>
+</figure> -->
 
 
+## Mapping Activity
 
-## Sorting & Filtering
+Data:
+[World_Indicators.csv](mapping/World_Indicators.csv) 
 
-To filter our visulization or the full page we need to use the **Filters Pane**. 
+Using the World Indicators dataset generate the following maps to show GDP, Energy Usage, and CO2 Emissions are measured by the World Bank.
 
-<figure>
-    <img src="images/300/27_filters_pane.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 27<figcaption>
-</figure>
+1. Generate a Map of countries colored by total GDP.
 
-When a visualization like our bar chart is selcted, the top portion of this pane will show the fields that can be filtered upon. To test this we will filter the **Category** field for only the values **Clothing & Shoes** & **Electronics & Computers**.
+![map1.png](mapping/map1.png)
 
-<figure>
-    <img src="images/300/28_filter_category.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 28<figcaption>
-</figure>
+2. Create a Map of Energy Usage for North and South America, excluding the U.S. to see how all other Americas countries compare.
 
-Our bar chart is now updated to only inlcude the two categories we selcted. 
+![map2.png](mapping/map2.png)
 
-<figure>
-    <img src="images/300/29_filter_result.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 29<figcaption>
-</figure>
+3. Map the CO2 Emmisions of the European Region and be sure to exclude Russia.
 
-If we would like to filter all the visulzations on the page we can scroll down to the bottom half of the **Filters Pan** and drag a field like **Year** into the **Filters on this page** section. We will select  2016 to filter the whole page on.
+![map3.png](mapping/map3.png)
 
-<figure>
-    <img src="images/300/30_page_filter.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 30<figcaption>
-</figure>
 
-You'll notice the bar chart now has 4 groups for the 2016 months and the line chart starts in 2016.
+## Forecasting
 
-<figure>
-    <img src="images/300/31_filter_year.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 31<figcaption>
-</figure>
+Data:
+[Stocks.csv](mapping/Stocks.csv) 
 
-To sort a visualiztion is easy. In the upper right-hand corner of the visualization select the three dot ellipses. A dropdown list will appear with **Sort descending** and **Sort ascending**.  Select **Sort ascending** and see what happens. Notice how the months are out of order but the **Electronics & Computers** category is sorted with the smallest on the bottom and largest on top. 
+Just like mapping, Forecasting in Tableau can be very simple to start, but there are numerous moving pieces to consider to produce relevant results. 
 
-<figure>
-    <img src="images/300/32_sorting.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 32<figcaption>
-</figure>
+We'll use stock market data to explain these concepts as they provide a good example of time series datasets with no gaps. The data from this lesson was exported from Yahoo Finance by Month dating back to 1997. This lesson is not intended to provide financial advice as it simply shows the ability with very little varicty behind the analysis. 
 
-To fix this and sort by our month values we need to enter the dropdown list again. At the bottom is an option for **Sort by**. Here we can selcted **Month**.
+Before we can forecast data we first must create a line chart of our current dataset. We'll start by filtering the dataset to only Amazon with the ticket `AMZN`. With our data filtered we can place the `Date` dimension in the `Columns` section and `SUM(Close)` in the `Rows`. This will generate a discrete chart, however, we will want it to be continuous. Additionally, because our data is provided at the monthly level we will drill to the level of `Quarter`. We need to ensure we change `SUM(Close)` to `AVG(Close)` since oru final quarter does not have all 3 months included and will give us a more accuracy view of the price change over time in general. 
 
-<figure>
-    <img src="images/300/33_sort_by.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 33<figcaption>
-</figure>
+From here we can add our `Forecast` by selecting the `Analysis` menu and look for the `Forecast` option. We will start with the default options and simply select `Show Forecast`. We now have a `naive` forecast through `Q4 2022`. 
 
- Now the month labels are placed in chronological order.
+We can control the forecasting to an extent by returning to the `Analysis` menu `Forecast` selection where we will find `Forecast Options`. In the window that opens we can see the controls available, including how many time series segements to project forward. We also see the option of showing the confidence intervals band to see how confident the model is on the prediction. At the very bottom is a written description of how the data was used and analyzed when generating the model. 
 
-<figure>
+This is also where we can take greater control of how the function treats Seasonality, Trend, and which segments of time to use to perform the rolling analysis. This is beyond the scope of this course as we could spend an entire semester on the subject so we will leave the default values.
+
+Next, we'll see how the forecasting works for multiple dimensional values by adding Stock to Rows and removing our filter on stock symbol to show both Amazon and Apple stocks. We now have a separate line chart for each stock with their individual forecasts. However, the forecast for Apple is less noticable because of the very high value of Amazon stock. To fix for this we will right-click on the Apple y-axis, select `Edit Axis`, and finally choose `Independent axis ranges for each row or column`. This will allow each line chart to have it's own default y-axis values. Now we can see Apple's forecast. 
+
+<!-- <figure>
     <img src="images/300/34_sort_month.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
     <figcaption style="text-align:center;">Figure 34<figcaption>
-</figure>
+</figure> -->
 
-## Saving & Sharing
+## Forecasting Activity
 
-We have a couple of options to save the Power BI report. The first is to select the **Save Disk** icon in the upper left-hand corner of the application. 
+Data:
+[Median Home Sales Prices.csv](forecasting/Median_Home_Sales_Prices.csv) 
 
-<figure>
-    <img src="images/300/35_save_disk.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 35<figcaption>
-</figure>
+Using the Median Home Sales Prices in the US dataing back to 1900, generate the following forecasts. 
 
-Once selected we will be asked to give the file a name and save it as a **.pbix** file type. Here we will name the program **Sales_Analysis.pbix**.
+1. Generate a quarterly forecast of Median Homes Sale Prices Values (Val) for 8 quarters. Additionally, only show data from the past 30 years relative to Today.
 
-<figure>
-    <img src="images/300/36_pbix.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 36<figcaption>
-</figure>
+![forecast1.png](forecasting/forecast1.png)
 
-A second option to save the report, or save with a different name, is to selcte the **File** tab from the ribbon and then to select **Save as**.
+2. Generate a quarterly forecast with data filtered from January 1st, 2000, through December 31st, 2014, that will forecast for 9 quarters. Update the X-Axis to span from 1/1/2000 through 12/31/2017.
 
-<figure>
-    <img src="images/300/37_save_as.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 37<figcaption>
-</figure>
+![forecast2.png](forecasting/forecast2.png)
 
-Once the report is saved we can now share our work with others. Sharing only work this way if you have a Power BI pro account. Otherwise you will need to share the **.pbix** report file along with the datasets. Here we will click on the **Publish** button in the ribbon.
+3. Create a line chart of actual Median Home Sales Price valuse starting from January 1st, 2000, till the end of the file. Update the X-Axis to span from 1/1/2000 through 12/31/2017.
 
-<figure>
-    <img src="images/300/38_publish.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 38<figcaption>
-</figure>
+![forecast3.png](forecasting/forecast3.png)
 
-If you are not logged into your Office 365 account with Power BI Pro, you will be asked to do so now. 
+#### Bonus
 
-<figure>
-    <img src="images/300/39_login.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 39<figcaption>
-</figure>
+The purpose of charts 2 & 3 from the activity are to compare forecasts to actual values to see how well the naive model performs with known future data.
 
-After you are logged in you will need to select the destination of where to publish the report on Power BI Online. In our case we will leave the selected as **My workspace**.
+Stack these charts on top of each other in a Dashboard usings the `Floating` option to see the comparison. 
 
-<figure>
-    <img src="images/300/40_destination.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 40<figcaption>
-</figure>
+![bonus4.png](forecasting/bonus4.png)
 
-Once the publishing is complete a link will be proivded to go directly to the published report. Click the link and wait for the browser to bring you to the report page. You may be asked to login and verify your Office 365 credentials again.
-
-<figure>
-    <img src="images/300/41_published.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 41<figcaption>
-</figure>
-
-Once you are able to access Power BI Online you will be presented with your report on the main page.
-
-<figure>
-    <img src="images/300/42_dashboard.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 42<figcaption>
-</figure>
-
-If you are presenting this report you can expand the report to be **Full screen** by selected the rectangle drop down in the upper right-hand corner of the screen and make the selction.
-
-<figure>
-    <img src="images/300/43_presentation.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 43<figcaption>
-</figure>
-
-Notice how the report now takes up the full screen except for the **Filter** options that can be collapsed to the right side of the screen.
-
-<figure>
-    <img src="images/300/44_fullscreen.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
-    <figcaption style="text-align:center;">Figure 44<figcaption>
-</figure>
-
-Finally if we want to **Share** the report with others, on the Power BI Online page there is a **Share** icon where we can select to email a link with access to any users we would like. This same menu has options for exporting differnt file types, downloading the project file, and more.
-
-<figure>
+<!-- <figure>
     <img src="images/300/45_sharing.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
     <figcaption style="text-align:center;">Figure 45<figcaption>
-</figure>
+</figure> -->
 
-We've now create our first Power BI Data Visualization and can now share it with anyone else in our Office 365 ecosystem!
