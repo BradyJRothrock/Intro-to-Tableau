@@ -99,7 +99,7 @@ Using the World Indicators dataset generate the following maps to show GDP, Ener
 ## Forecasting
 
 Data:
-[Stocks.csv](mapping/Stocks.csv) 
+[Stocks.csv](forecasting/Stocks.csv) 
 
 Just like mapping, Forecasting in Tableau can be very simple to start, but there are numerous moving pieces to consider to produce relevant results. 
 
