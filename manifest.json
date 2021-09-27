@@ -26,11 +26,19 @@
 		},
 		{
 			"title": "Part 4: Dashboards & Storyboards",
-			"description": "Mapping & Forecasts",
+			"description": "Dashboards & Storyboards",
 			"partnumber": "Ennnnn_01",
 			"publisheddate": "02/18/2020",
 			"contentid": "12nnnn",
 			"filename": "LabGuide400.md"
+		},
+		{
+			"title": "Part 5: Heat Maps, Scatter Plots, and Calculated Fields",
+			"description": "Heat Maps, Scatter Plots, and Calculated Fields",
+			"partnumber": "Ennnnn_01",
+			"publisheddate": "02/18/2020",
+			"contentid": "12nnnn",
+			"filename": "LabGuide500.md"
 		}
 	]
 }
