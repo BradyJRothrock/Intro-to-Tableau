@@ -290,13 +290,17 @@ In the resulting pane on the lefthand side of the screen we will select the **Pa
     <img src="images/600/44.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
 </figure>
 
-This will result in our legend and all other values in the map to register as **American USD Currency** with a **$** in front of the values. If we need to change the Currency to something like the Brittish Pound we would instead have selected **Currency Standard** and picked the correct **Locale** of **English(United Kingdom)**.
+This will result in our legend and all other values in the map to register as **American USD Currency** with a **$** in front of the values. 
 
 <figure>
     <img src="images/600/45.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
 </figure>
 
+If we need to change the Currency to something like the Brittish Pound we would instead have selected **Currency Standard** and picked the correct **Locale** of **English(United Kingdom)**.
 
+<figure>
+    <img src="images/600/46.png" style="text-align:center; display: block; margin-left: auto; margin-right: auto; " class="captions">
+</figure>
 
 <!-- ## Pie & Donut Activity
 
